@@ -4,6 +4,10 @@ import { ForCapitalComponent } from './pages/for-capital/for-capital.component';
 import { ForCountryComponent } from './pages/for-country/for-country.component';
 import { ForRegionComponent } from './pages/for-region/for-region.component';
 import { WatchCountryComponent } from './pages/watch-country/watch-country.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CountyTableComponent } from './components/county-table/county-table.component';
+import { CountyInputComponent } from './components/county-input/county-input.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +15,8 @@ import { WatchCountryComponent } from './pages/watch-country/watch-country.compo
     ForCountryComponent,
     ForRegionComponent,
     WatchCountryComponent,
+    CountyTableComponent,
+    CountyInputComponent,
   ],
   exports: [
     ForCapitalComponent,
@@ -18,6 +24,6 @@ import { WatchCountryComponent } from './pages/watch-country/watch-country.compo
     ForRegionComponent,
     WatchCountryComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, RouterModule],
 })
 export class CountryModule {}

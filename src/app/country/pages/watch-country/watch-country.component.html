@@ -1,1 +1,33 @@
-<p>watch-country works!</p>
+<div *ngIf="!country; else containerCountry" class="alert alert-info">
+  Espere por favor...
+</div>
+
+<ng-template #containerCountry>
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        País: <small>{{ country.name.common }}</small>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img class="img-thumbnail" [src]="country.flags.svg" alt="" />
+    </div>
+    <div class="col">
+      <h3>Información</h3>
+      <ul class="list-group-item">
+        <li class="list-group-item">
+          <strong>Población:</strong> {{ country.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Idioma:</strong> {{ country.languages.spa }}
+        </li>
+        <li class="list-group-item">
+          <strong>Areá:</strong> {{ country.area | number }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

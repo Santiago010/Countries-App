@@ -1,0 +1,11 @@
+<form action="" (ngSubmit)="search()">
+  <input
+    type="text"
+    name="term"
+    [placeholder]="placeholder"
+    class="form-control"
+    [(ngModel)]="term"
+    autocomplete="off"
+    (input)="keyPressed()"
+  />
+</form>

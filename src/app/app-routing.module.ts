@@ -21,7 +21,7 @@ const routes: Routes = [
     component: ForCapitalComponent,
   },
   {
-    path: 'pais/:idCounty',
+    path: 'pais/:cca2',
     component: WatchCountryComponent,
   },
   {
