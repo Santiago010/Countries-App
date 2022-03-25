@@ -5,18 +5,30 @@ import { CountryService } from '../../services/country.service';
 @Component({
   selector: 'app-for-country',
   templateUrl: './for-country.component.html',
-  styles: [],
+  styles: [
+    `
+      li {
+        cursor: pointer;
+      }
+    `,
+  ],
 })
 export class ForCountryComponent {
   term: string = '';
   hayError: Boolean = false;
   countries: Country[] = [];
+  suggestedCountries: Country[] = [];
 
   constructor(private countryService: CountryService) {}
 
   suggestions(term: string) {
     this.hayError = false;
     this.term = term;
+
+    this.countryService.searchCountry(term).subscribe(
+      (respCountries) => (this.suggestedCountries = respCountries.splice(0, 5)),
+      (err) => (this.suggestedCountries = [])
+    );
   }
 
   search(term: string) {

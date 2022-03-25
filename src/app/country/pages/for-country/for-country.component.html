@@ -9,7 +9,18 @@
     ></app-county-input>
   </div>
 </div>
-
+<div class="row">
+  <ul class="list-group">
+    <li
+      *ngFor="let country of suggestedCountries"
+      class="list-group-item list-group-item-action"
+    >
+      <a class="nav-link" [routerLink]="['/pais/' + country.cca2]">{{
+        country.name.common
+      }}</a>
+    </li>
+  </ul>
+</div>
 <hr />
 <div *ngIf="hayError" class="alert alert-danger">
   No se encontró nada con el termino {{ term }}
